@@ -35,7 +35,10 @@ export const Header: React.FC<{ innerPage?: boolean; currentPage?: string }> = (
   const isItemActive = (href: string, index: number) => {
     const normalize = (path: string) => path.replace(/\/$/, '') || '/';
     if (normalize(activeHref) !== normalize(href)) return false;
-    const lastMatch = navItems.findLastIndex((item) => normalize(item.href) === normalize(href));
+    let lastMatch = -1;
+    navItems.forEach((item, itemIndex) => {
+      if (normalize(item.href) === normalize(href)) lastMatch = itemIndex;
+    });
     return index === lastMatch;
   };
 
