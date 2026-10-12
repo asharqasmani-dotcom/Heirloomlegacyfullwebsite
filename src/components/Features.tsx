@@ -1,22 +1,34 @@
 import React from 'react';
 import { featuresData } from '../data/features';
+import { Feature } from '../types';
 import './Features.css';
 
-export const Features: React.FC = () => {
+export const Features: React.FC<{
+  image?: string;
+  showCaption?: boolean;
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  items?: Feature[];
+}> = ({
+  image = '/assets/community/values-community-room.jpg',
+  showCaption = true,
+  eyebrow = 'What Drives Our Mission',
+  title = 'Where Community Meets Meaningful Opportunity.',
+  subtitle = 'Our approach is shaped by a commitment to dignity, meaningful relationships, purposeful resources, and lasting stability.',
+  items = featuresData,
+}) => {
   return (
     <section className="features-section section-light" id="values" aria-label="Our Values">
       <div className="container">
         {/* Section Header: Left Eyebrow & Title, Right Subtitle */}
         <div className="features-header">
           <div className="features-header-left">
-            <span className="eyebrow eyebrow-light">What Drives Our Mission</span>
-            <h2 className="features-title">Where Community Meets Meaningful Opportunity.</h2>
+            <span className="eyebrow eyebrow-light">{eyebrow}</span>
+            <h2 className="features-title">{title}</h2>
           </div>
           <div className="features-header-right">
-            <p className="features-subtitle">
-              Our approach is shaped by a commitment to dignity, meaningful relationships,
-              purposeful resources, and lasting stability.
-            </p>
+            <p className="features-subtitle">{subtitle}</p>
           </div>
         </div>
 
@@ -24,7 +36,7 @@ export const Features: React.FC = () => {
         <div className="features-split-grid">
           {/* Left Column: Vertical stack of 4 numbered values */}
           <div className="features-list-col">
-            {featuresData.map((item, index) => (
+            {items.map((item, index) => (
               <React.Fragment key={item.number}>
                 <div className="feature-list-item">
                   <div className="feature-number-circle">{item.number}</div>
@@ -33,7 +45,7 @@ export const Features: React.FC = () => {
                     <p className="feature-item-desc">{item.description}</p>
                   </div>
                 </div>
-                {index < featuresData.length - 1 && (
+                {index < items.length - 1 && (
                   <div className="feature-item-divider" aria-hidden="true" />
                 )}
               </React.Fragment>
@@ -45,14 +57,14 @@ export const Features: React.FC = () => {
             <div
               className="features-media-card"
               style={{
-                backgroundImage: `url("/assets/community/values-community-room.jpg")`,
+                backgroundImage: `url("${image}")`,
               }}
             >
-              <div className="media-overlay" />
-              <div className="media-caption">
-                <span className="media-caption-title">Building a Legacy of Stability</span>
+              {showCaption && <div className="media-overlay" />}
+              {showCaption && <div className="media-caption">
+                <span className="media-caption-title">A Thoughtful Place to Call Home</span>
                 <span className="media-caption-sub">Heirloom Legacy, Inc.</span>
-              </div>
+              </div>}
             </div>
           </div>
         </div>

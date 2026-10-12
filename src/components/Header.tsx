@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { navigationItems, headerCta } from '../data/navigation';
+import { navigationItems, headerCta, pageHref } from '../data/navigation';
 import { siteConfig } from '../data/siteConfig';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import './Header.css';
 
-export const Header: React.FC = () => {
+export const Header: React.FC<{ innerPage?: boolean; currentPage?: string }> = ({
+  innerPage = false,
+  currentPage,
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeHref, setActiveHref] = useState<string>('#top');
+
+  const navItems = navigationItems;
+  const cta = headerCta;
+  const activeHref =
+    currentPage ?? (typeof window !== 'undefined' ? window.location.pathname : '/');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,26 +22,6 @@ export const Header: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Highlight the nav item whose section is currently in view
-  useEffect(() => {
-    if (typeof IntersectionObserver === 'undefined') return;
-    const sections = navigationItems
-      .map((item) => document.querySelector<HTMLElement>(item.href))
-      .filter((el): el is HTMLElement => el !== null);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActiveHref(`#${visible.target.id}`);
-      },
-      { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5] }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
   }, []);
 
   // Lock body scroll when mobile menu is open
@@ -45,11 +32,18 @@ export const Header: React.FC = () => {
     };
   }, [mobileMenuOpen]);
 
+  const isItemActive = (href: string, index: number) => {
+    const normalize = (path: string) => path.replace(/\/$/, '') || '/';
+    if (normalize(activeHref) !== normalize(href)) return false;
+    const lastMatch = navItems.findLastIndex((item) => normalize(item.href) === normalize(href));
+    return index === lastMatch;
+  };
+
   return (
     <header className={`site-header ${scrolled ? 'header-scrolled' : ''}`}>
       <div className="header-container">
         {/* Brand Logo */}
-        <a href="#top" className="header-logo-link" aria-label={`${siteConfig.organization} home`}>
+        <a href={pageHref('/', innerPage)} className="header-logo-link" aria-label={`${siteConfig.organization} home`}>
           <img
             src={siteConfig.logos.primary}
             alt={siteConfig.name}
@@ -59,15 +53,15 @@ export const Header: React.FC = () => {
           />
         </a>
 
-        {/* Desktop Navigation — direct section anchors, no dropdowns */}
+        {/* Desktop Navigation */}
         <nav className="header-nav" aria-label="Main Navigation">
           <ul className="nav-menu">
-            {navigationItems.map((item) => (
+            {navItems.map((item, index) => (
               <li key={item.label} className="nav-item">
                 <a
-                  href={item.href}
-                  className={`nav-link ${activeHref === item.href ? 'nav-link-active' : ''}`}
-                  aria-current={activeHref === item.href ? 'location' : undefined}
+                  href={pageHref(item.href, innerPage)}
+                  className={`nav-link ${isItemActive(item.href, index) ? 'nav-link-active' : ''}`}
+                  aria-current={isItemActive(item.href, index) ? 'page' : undefined}
                 >
                   {item.label}
                 </a>
@@ -78,8 +72,8 @@ export const Header: React.FC = () => {
 
         {/* Header Right: Partner CTA */}
         <div className="header-cta">
-          <a href={headerCta.href} className="btn-primary header-cta-btn">
-            {headerCta.label} <ArrowUpRight size={16} />
+          <a href={pageHref(cta.href, innerPage)} className="btn-primary header-cta-btn">
+            {cta.label} <ArrowUpRight size={16} />
           </a>
 
           {/* Mobile Menu Toggle Button */}
@@ -88,6 +82,7 @@ export const Header: React.FC = () => {
             className="mobile-menu-toggle"
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -98,15 +93,18 @@ export const Header: React.FC = () => {
       {/* Mobile Drawer */}
       <div
         className={`mobile-drawer ${mobileMenuOpen ? 'drawer-open' : ''}`}
+        id="mobile-navigation"
+        inert={!mobileMenuOpen}
         aria-hidden={!mobileMenuOpen}
       >
         <div className="mobile-drawer-content">
           <ul className="mobile-nav-list">
-            {navigationItems.map((item) => (
+            {navItems.map((item, index) => (
               <li key={item.label} className="mobile-nav-item">
                 <a
-                  href={item.href}
-                  className="mobile-nav-link"
+                  href={pageHref(item.href, innerPage)}
+                  className={`mobile-nav-link ${isItemActive(item.href, index) ? 'mobile-nav-link-active' : ''}`}
+                  aria-current={isItemActive(item.href, index) ? 'page' : undefined}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
@@ -117,12 +115,12 @@ export const Header: React.FC = () => {
 
           <div className="mobile-drawer-footer">
             <a
-              href={headerCta.href}
+              href={pageHref(cta.href, innerPage)}
               className="btn-primary"
               style={{ width: '100%' }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              {headerCta.label} <ArrowUpRight size={16} />
+              {cta.label} <ArrowUpRight size={16} />
             </a>
           </div>
         </div>

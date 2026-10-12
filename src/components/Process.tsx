@@ -4,19 +4,19 @@ import './Process.css';
 
 export const Process: React.FC = () => {
   return (
-    <section className="process-section section-dark" id="mission" aria-label="Our Mission Framework">
+    <section className="process-section section-dark" id="mission" aria-label="Our Living Philosophy">
       <div className="container">
         {/* Section Header: Left Eyebrow & Title, Right Subtitle */}
         <div className="process-header">
           <div className="process-header-left">
-            <span className="eyebrow eyebrow-dark">Our Purpose</span>
-            <h2 className="process-title">From Shared Purpose to Stronger Communities.</h2>
+            <span className="eyebrow eyebrow-dark">Our Living Philosophy</span>
+            <h2 className="process-title">A Better Everyday Experience Begins at Home.</h2>
           </div>
 
           <div className="process-header-right">
             <p className="process-subtitle">
-              Heirloom Legacy, Inc. seeks to bring together people, partnerships, and purposeful
-              resources to support stability and meaningful community opportunities.
+              Our vision for independent living brings together comfort, welcoming surroundings,
+              and thoughtful design to support dignity and freedom.
             </p>
           </div>
         </div>
@@ -25,7 +25,7 @@ export const Process: React.FC = () => {
         <div className="process-hero-banner">
           <img
             src="/assets/community/process-mission-banner.jpg"
-            alt="Creating Lasting Impact Through Community Partnerships and Purposeful Resources — Heirloom Legacy, Inc."
+            alt="Contemporary residence with open landscaped grounds"
             className="process-banner-image"
             width={1024}
             height={363}

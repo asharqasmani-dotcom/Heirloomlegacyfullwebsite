@@ -3,34 +3,50 @@ import { statementsData } from '../data/statements';
 import { Quote } from 'lucide-react';
 import './Testimonials.css';
 
-export const Testimonials: React.FC = () => {
+export const Testimonials: React.FC<{
+  contactHref?: string;
+  lead?: string;
+  ctaLabel?: string;
+  quote?: string;
+  eyebrow?: string;
+  title?: string;
+  role?: string;
+  sectionLabel?: string;
+}> = ({
+  contactHref = '#contact',
+  lead = 'Strong communities are shaped by meaningful relationships, shared responsibility, and people working toward a common purpose.',
+  ctaLabel = 'CONNECT WITH US',
+  quote,
+  eyebrow = 'Our Community Commitment',
+  title = 'Building Trust Through Meaningful Partnerships.',
+  role,
+  sectionLabel = 'Community Partnerships',
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const current = statementsData[currentIndex];
+  const source = statementsData[currentIndex];
+  const current = { ...source, ...(quote ? { quote } : {}), ...(role ? { role } : {}) };
 
   return (
     <section
       className="testimonials-section section-light"
       id="partnerships"
-      aria-label="Community Partnerships"
+      aria-label={sectionLabel}
     >
       <div className="container">
         {/* Section Header: Left lead text + CTA; Right Eyebrow + Heading */}
         <div className="testimonials-header">
           <div className="testimonials-header-left">
-            <p className="testimonials-header-desc">
-              Strong communities are shaped by meaningful relationships, shared responsibility,
-              and people working toward a common purpose.
-            </p>
+            <p className="testimonials-header-desc">{lead}</p>
             <div className="testimonials-cta-wrap">
-              <a href="#contact" className="btn-outline-on-light">
-                CONNECT WITH US
+              <a href={contactHref} className="btn-outline-on-light">
+                {ctaLabel}
               </a>
             </div>
           </div>
 
           <div className="testimonials-header-right">
-            <span className="eyebrow eyebrow-light">Our Community Commitment</span>
-            <h2 className="testimonials-title">Building Trust Through Meaningful Partnerships.</h2>
+            <span className="eyebrow eyebrow-light">{eyebrow}</span>
+            <h2 className="testimonials-title">{title}</h2>
           </div>
         </div>
 

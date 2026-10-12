@@ -7,14 +7,24 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    host: '127.0.0.1',
+    host: true,
   },
   preview: {
     port: 4173,
-    host: '127.0.0.1',
+    host: true,
   },
   build: {
     outDir: 'dist',
+    rollupOptions: {
+      input: {
+        home: 'index.html',
+        about: 'about-us/index.html',
+        services: 'our-services/index.html',
+        process: 'our-process/index.html',
+        partnerships: 'partnerships-support/index.html',
+        contact: 'contact-us/index.html',
+      },
+    },
     sourcemap: true,
   },
   test: {

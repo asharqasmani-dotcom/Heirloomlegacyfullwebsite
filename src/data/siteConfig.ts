@@ -27,17 +27,17 @@ export const siteConfig = {
   hero: {
     bgImage: '/assets/dit.nomadenstudio.com/arvon/wp-content/uploads/sites/7/2026/01/Image-Gen-5.png',
     watermark: 'LEGACY',
-    eyebrow: 'Heirloom Legacy, Inc.',
-    heading: 'Building a Legacy of Stability Through Community and Partnership.',
+    eyebrow: 'The Heirloom Living Vision',
+    heading: 'A Place to Feel at Home, Live Independently, and Thrive.',
     description:
-      'Creating meaningful opportunities through community partnerships, purposeful resources, and a lasting commitment to dignity and stability.',
-    cta: { label: 'Explore Our Mission', href: '#mission' },
+      'Discover independent living shaped by personal comfort, everyday dignity, and a welcoming sense of home.',
+    cta: { label: 'Discover Our Vision', href: '#mission' },
     // Static highlight bar (replaces the former property-search bar; text only, same design)
     highlights: [
-      { label: 'Our Purpose', value: 'Community Stability' },
-      { label: 'Our Focus', value: 'Meaningful Partnerships' },
-      { label: 'Our Vision', value: 'Lasting Community Impact' },
+      { label: 'Living Experience', value: 'Comfort & Independence' },
+      { label: 'Our Approach', value: 'Privacy & Dignity' },
+      { label: 'Our Priority', value: 'A Place to Belong' },
     ],
-    highlightCta: { label: 'Connect With Us', href: '#contact' },
+    highlightCta: { label: 'Learn More', href: '#about' },
   },
 };

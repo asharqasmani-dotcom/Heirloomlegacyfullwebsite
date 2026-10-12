@@ -5,20 +5,20 @@ import './RefinedLiving.css';
 // Brand values — NOT numerical performance claims. The former real-estate counters
 // had no verified nonprofit basis and were removed.
 const brandValues: BrandValue[] = [
-  { number: '01', label: 'Community', caption: 'Matters' },
-  { number: '02', label: 'Partnership', caption: 'Matters' },
-  { number: '03', label: 'Resources', caption: 'Matter' },
+  { number: '01', label: 'Comfort', caption: 'Every Day' },
+  { number: '02', label: 'Privacy', caption: 'Personal Space' },
+  { number: '03', label: 'Belonging', caption: 'Feel at Home' },
 ];
 
 const marqueeKeywords = [
-  'Community',
-  'Stability',
-  'Dignity',
-  'Partnership',
-  'Resources',
-  'Opportunity',
+  'Comfort',
   'Independence',
-  'Legacy',
+  'Privacy',
+  'Home',
+  'Wellbeing',
+  'Connection',
+  'Dignity',
+  'Everyday Living',
 ];
 
 const ValueHighlight: React.FC<BrandValue> = ({ number, label, caption }) => (
@@ -34,15 +34,15 @@ const ValueHighlight: React.FC<BrandValue> = ({ number, label, caption }) => (
 
 export const RefinedLiving: React.FC = () => {
   return (
-    <section className="refined-section section-light" id="about" aria-label="About Heirloom Legacy">
+    <section className="refined-section section-light" id="about" aria-label="The Heirloom Experience">
       <div className="container">
         {/* Section Header: Left Eyebrow, Right Heading */}
         <div className="refined-header">
           <div className="refined-header-eyebrow-col">
-            <span className="eyebrow eyebrow-light">About Heirloom Legacy</span>
+            <span className="eyebrow eyebrow-light">The Heirloom Experience</span>
           </div>
           <div className="refined-header-title-col">
-            <h2 className="refined-title">Building Stronger Communities with Purpose.</h2>
+            <h2 className="refined-title">Thoughtful Living Starts with Feeling at Home.</h2>
           </div>
         </div>
 
@@ -53,7 +53,7 @@ export const RefinedLiving: React.FC = () => {
             <div className="image-frame-tall">
               <img
                 src="/assets/dit.nomadenstudio.com/arvon/wp-content/uploads/sites/7/2026/01/Image-Gen-6-683x1024.jpg"
-                alt="Modern residential architecture"
+                alt="Concrete residence raised on timber columns above a stone garden path"
                 className="refined-tall-photo"
                 loading="lazy"
                 width={683}
@@ -79,18 +79,18 @@ export const RefinedLiving: React.FC = () => {
             <div className="refined-narrative-top">
               <div className="refined-description">
                 <p>
-                  Heirloom Legacy, Inc. is dedicated to building a foundation for community
-                  stability through meaningful partnerships and purposeful resources.
+                  Heirloom Legacy envisions welcoming independent living environments where personal
+                  comfort, everyday freedom, and dignity are central to the experience.
                 </p>
                 <p>
-                  Our vision centers on creating environments that encourage dignity,
-                  independence, and a stronger sense of belonging.
+                  Thoughtful surroundings and opportunities for connection help shape our vision of
+                  a home where individuals can feel valued and at ease.
                 </p>
               </div>
 
               <div className="refined-cta">
-                <a href="#mission" className="btn-outline-on-light">
-                  LEARN MORE
+                <a href="#initiatives" className="btn-outline-on-light">
+                  EXPLORE HEIRLOOM
                 </a>
               </div>
             </div>
@@ -104,8 +104,8 @@ export const RefinedLiving: React.FC = () => {
             >
               <div className="feature-card-overlay" />
               <div className="feature-card-caption">
-                <span className="feature-card-eyebrow">Our Community Vision</span>
-                <span className="feature-card-text">Creating Places of Stability and Belonging</span>
+                <span className="feature-card-eyebrow">The Resident Experience</span>
+                <span className="feature-card-text">A Thoughtful Place to Call Home</span>
               </div>
             </div>
           </div>

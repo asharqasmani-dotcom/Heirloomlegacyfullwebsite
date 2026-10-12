@@ -1,9 +1,37 @@
 import React from 'react';
 import { siteConfig } from '../data/siteConfig';
-import { footerExplore, footerConnect, footerLegal } from '../data/navigation';
+import {
+  footerExplore,
+  footerConnect,
+  footerLegal,
+  homepageFooterExplore,
+  homepageFooterInvolve,
+  pageHref,
+} from '../data/navigation';
+import { NavItem } from '../types';
 import './Footer.css';
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC<{
+  innerPage?: boolean;
+  exploreLinks?: NavItem[];
+  connectLinks?: NavItem[];
+  websiteLabel?: string;
+  showCorporate?: boolean;
+  tagline?: string;
+  statement?: string;
+}> = ({
+  innerPage = false,
+  exploreLinks: exploreOverride,
+  connectLinks: connectOverride,
+  websiteLabel,
+  showCorporate,
+  tagline,
+  statement = 'BUILDING A LEGACY OF STABILITY',
+}) => {
+  const exploreLinks = exploreOverride ?? (innerPage ? footerExplore : homepageFooterExplore);
+  const connectLinks = connectOverride ?? (innerPage ? footerConnect : homepageFooterInvolve);
+  const corporateVisible = showCorporate ?? innerPage;
+  const connectHeading = innerPage ? 'Connect' : 'Get Involved';
   return (
     <footer className="site-footer" id="footer" aria-label="Site Footer">
       <div className="container">
@@ -11,7 +39,7 @@ export const Footer: React.FC = () => {
         <div className="footer-main-grid">
           {/* Column 1: Brand, Description & Official Contact */}
           <div className="footer-col-brand">
-            <a href="#top" className="footer-logo-link" aria-label={`${siteConfig.organization} home`}>
+            <a href={pageHref('#top', innerPage)} className="footer-logo-link" aria-label={`${siteConfig.organization} home`}>
               <img
                 src={siteConfig.logos.light}
                 alt={siteConfig.name}
@@ -22,7 +50,7 @@ export const Footer: React.FC = () => {
               />
             </a>
 
-            <h3 className="footer-tagline">{siteConfig.tagline}</h3>
+            <h3 className="footer-tagline">{tagline ?? siteConfig.tagline}</h3>
 
             {/* Official contact only — no physical address or phone is published. */}
             <div className="footer-contact-block">
@@ -34,7 +62,7 @@ export const Footer: React.FC = () => {
               </div>
 
               <div className="contact-item">
-                <span className="contact-label">PUBLIC WEBSITE</span>
+                <span className="contact-label">{websiteLabel ?? (innerPage ? 'PUBLIC WEBSITE' : 'WEBSITE')}</span>
                 <a
                   href={siteConfig.publicWebsite.href}
                   className="contact-value"
@@ -45,12 +73,14 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
 
-              <div className="contact-item">
-                <span className="contact-label">CORPORATE LANDING PAGE</span>
-                <a href={siteConfig.corporateSite.href} className="contact-value">
-                  {siteConfig.corporateSite.label}
-                </a>
-              </div>
+              {corporateVisible && (
+                <div className="contact-item">
+                  <span className="contact-label">CORPORATE LANDING PAGE</span>
+                  <a href={siteConfig.corporateSite.href} className="contact-value">
+                    {siteConfig.corporateSite.label}
+                  </a>
+                </div>
+              )}
             </div>
 
             {/* Social Links — PLACEHOLDER URLs pending client-approved profiles */}
@@ -74,9 +104,9 @@ export const Footer: React.FC = () => {
           <div className="footer-col-nav">
             <h4 className="footer-heading">Explore</h4>
             <ul className="footer-links-list">
-              {footerExplore.map((p) => (
+              {exploreLinks.map((p) => (
                 <li key={p.label}>
-                  <a href={p.href} className="footer-link">
+                  <a href={pageHref(p.href, innerPage)} className="footer-link">
                     {p.label}
                   </a>
                 </li>
@@ -86,11 +116,11 @@ export const Footer: React.FC = () => {
 
           {/* Column 3: Connect */}
           <div className="footer-col-nav">
-            <h4 className="footer-heading">Connect</h4>
+            <h4 className="footer-heading">{connectHeading}</h4>
             <ul className="footer-links-list">
-              {footerConnect.map((s) => (
+              {connectLinks.map((s) => (
                 <li key={s.label}>
-                  <a href={s.href} className="footer-link">
+                  <a href={pageHref(s.href, innerPage)} className="footer-link">
                     {s.label}
                   </a>
                 </li>
@@ -101,7 +131,7 @@ export const Footer: React.FC = () => {
 
         {/* Large Decorative Statement */}
         <div className="footer-watermark-row" aria-hidden="true">
-          <div className="footer-giant-title">BUILDING A LEGACY OF STABILITY</div>
+          <div className="footer-giant-title">{statement}</div>
         </div>
 
         {/* Bottom Copyright & Legal bar */}
@@ -111,7 +141,7 @@ export const Footer: React.FC = () => {
           <ul className="legal-links-list">
             {footerLegal.map((l) => (
               <li key={l.label}>
-                <a href={l.href} className="legal-link" title="Page pending client content">
+                <a href={pageHref(l.href, innerPage)} className="legal-link" title="Page pending client content">
                   {l.label}
                 </a>
               </li>

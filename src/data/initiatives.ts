@@ -4,29 +4,32 @@ import { Initiative } from '../types';
 export const initiativesData: Initiative[] = [
   {
     id: 'initiative-1',
-    category: 'Community',
-    title: 'Stable Living Environments',
+    category: 'Personal Space',
+    title: 'Comfort in Every Corner',
     description:
-      'Supporting a vision of welcoming spaces where comfort, dignity, and independence remain central.',
+      'Welcoming personal spaces envisioned to provide comfort, privacy, and a reassuring sense of home.',
     image: '/assets/dit.nomadenstudio.com/arvon/wp-content/uploads/sites/7/2026/01/Image-Gen-12.jpg',
+    imageAlt: 'Stone residence with open living room doors beside a reflecting pool at sunset',
     href: '#about',
   },
   {
     id: 'initiative-2',
-    category: 'Partnerships',
-    title: 'Purposeful Community Alliances',
+    category: 'Daily Living',
+    title: 'Freedom to Live Your Way',
     description:
-      'Connecting with organizations that share our commitment to community stability and opportunity.',
+      'A residential approach that values personal routines, independence, and everyday confidence.',
     image: '/assets/dit.nomadenstudio.com/arvon/wp-content/uploads/sites/7/2026/01/Image-Gen-8.jpg',
+    imageAlt: 'Glass residential towers rising above a curved city corner',
     href: '#partnerships',
   },
   {
     id: 'initiative-3',
-    category: 'Resources',
-    title: 'Resources for Lasting Impact',
+    category: 'Shared Spaces',
+    title: 'Places to Feel Connected',
     description:
-      'Encouraging purposeful collaboration and resources that support long-term community benefit.',
+      'Thoughtfully envisioned gathering spaces that encourage interaction, relaxation, and belonging.',
     image: '/assets/dit.nomadenstudio.com/arvon/wp-content/uploads/sites/7/2026/01/Image-Gen-13.jpg',
+    imageAlt: 'White contemporary building reflected in still water beside a single tree',
     href: '#mission',
   },
 ];

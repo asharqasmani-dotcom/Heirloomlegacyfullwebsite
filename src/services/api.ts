@@ -17,11 +17,20 @@ function checkRateLimit(): boolean {
   return true;
 }
 
+export const HOMEPAGE_INQUIRY_TYPES: InquiryType[] = [
+  'Independent Living Inquiry',
+  'Residential Information',
+  'General Questions',
+  'Other Inquiry',
+];
+
+/** Accepted by the shared validator. Homepage shows HOMEPAGE_INQUIRY_TYPES only. */
 export const INQUIRY_TYPES: InquiryType[] = [
-  'Community Partnership',
-  'Institutional Collaboration',
-  'Resource Support',
   'General Inquiry',
+  'Community Partnership',
+  'Resource Support',
+  'Get Involved',
+  ...HOMEPAGE_INQUIRY_TYPES,
 ];
 
 export const CONTACT_RECIPIENT = 'info@heirloomlegacy.org';

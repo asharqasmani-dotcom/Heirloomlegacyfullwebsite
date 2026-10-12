@@ -1,0 +1,495 @@
+.process-page {
+  overflow: clip;
+  background: var(--ivory);
+}
+
+.process-page h2 {
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+}
+
+.process-skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 2000;
+  padding: 12px 20px;
+  background: var(--ivory);
+  color: var(--navy);
+}
+
+.process-skip-link:focus {
+  top: 12px;
+}
+
+/* 01. Banner */
+.process-banner {
+  margin-top: var(--header-height);
+  min-height: 70vh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  color: var(--ivory);
+}
+
+@media (min-width: 1025px) {
+  .process-banner {
+    background-attachment: fixed;
+  }
+}
+
+.process-banner-copy {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 24px;
+  max-width: 680px;
+}
+
+.process-banner h1 {
+  font-size: clamp(2.6rem, 5.4vw, 4.6rem);
+  margin-bottom: 24px;
+}
+
+.process-banner nav {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.process-banner nav a:hover {
+  color: var(--gold-soft);
+}
+
+.process-watermark {
+  position: absolute;
+  font: 600 clamp(95px, 22vw, 380px) / 1 var(--font-title);
+  letter-spacing: 0.06em;
+  color: rgba(245, 242, 233, 0.12);
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* 02. Benefits Section */
+.process-benefits {
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
+.process-benefits-header {
+  display: grid;
+  grid-template-columns: 52% 40%;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-end;
+  margin-bottom: 70px;
+}
+
+.benefits-intro-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--navy-dim);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+.benefit-item {
+  position: relative;
+  padding-right: 20px;
+}
+
+.benefit-num {
+  font-family: var(--font-title);
+  font-size: 2.8rem;
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.benefit-item h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.benefit-item p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--navy-dim);
+}
+
+.benefit-divider {
+  position: absolute;
+  top: 10px;
+  right: -16px;
+  width: 1px;
+  height: calc(100% - 20px);
+  background: var(--gold-border-soft);
+}
+
+/* 03. How We Work */
+.process-steps-section {
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.process-steps-header {
+  display: grid;
+  grid-template-columns: 48% 46%;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-end;
+  margin-bottom: 60px;
+}
+
+.process-trust-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.process-avatars {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.process-avatars img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--ivory);
+  object-fit: cover;
+  margin-right: -12px;
+}
+
+.process-stars {
+  display: flex;
+  gap: 3px;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.trust-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--navy-dim);
+  text-transform: uppercase;
+}
+
+.steps-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--navy-dim);
+}
+
+.process-steps-image-wrap {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+.process-steps-image {
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+  display: block;
+}
+
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.process-step-card {
+  background: var(--white);
+  padding: 36px 30px;
+  border: 1px solid var(--gold-border-soft);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 16px 32px rgba(11, 27, 61, 0.05);
+}
+
+.step-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.step-icon-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: grid;
+  place-items: center;
+}
+
+.step-icon-badge img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.step-num {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--navy);
+  opacity: 0.35;
+}
+
+.process-step-card h3 {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.process-step-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--navy-dim);
+}
+
+/* 04. Client Trust Stories / Reviews */
+.process-reviews-section {
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.reviews-header {
+  display: grid;
+  grid-template-columns: 42% 50%;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-end;
+  margin-bottom: 60px;
+}
+
+.reviews-header-left p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--navy-dim);
+  margin-bottom: 28px;
+}
+
+.reviews-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+.reviews-showcase {
+  display: grid;
+  grid-template-columns: 45% 50%;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: center;
+}
+
+.reviews-image-col img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.reviews-carousel-card {
+  background: var(--white);
+  padding: 50px 44px;
+  border: 1px solid var(--gold-border-soft);
+  position: relative;
+}
+
+.reviews-quote-icon {
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+.reviews-quote {
+  font-family: var(--font-title);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--navy);
+  margin-bottom: 32px;
+}
+
+.reviews-author-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--gold-border-soft);
+  margin-bottom: 24px;
+}
+
+.reviews-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviews-author-name {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.reviews-author-role {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.reviews-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reviews-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.reviews-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--gold-border-soft);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.reviews-dot-active {
+  width: 24px;
+  background: var(--gold);
+}
+
+.reviews-arrow-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.reviews-arrow-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-border-soft);
+  background: transparent;
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reviews-arrow-btn:hover {
+  background: var(--navy);
+  color: var(--ivory);
+  border-color: var(--navy);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  .benefit-divider {
+    display: none;
+  }
+  .process-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reviews-showcase {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .reviews-image-col img {
+    height: 380px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .process-banner {
+    min-height: 50vh;
+  }
+  .process-benefits-header,
+  .process-steps-header,
+  .reviews-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .reviews-header-right {
+    order: -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .process-benefits {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .process-steps-section {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+  .process-steps-image {
+    height: 320px;
+  }
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .process-step-card {
+    padding: 28px 24px;
+  }
+  .process-reviews-section {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+  .reviews-carousel-card {
+    padding: 32px 24px;
+  }
+}

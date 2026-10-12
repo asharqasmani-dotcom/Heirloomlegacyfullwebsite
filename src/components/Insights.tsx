@@ -5,21 +5,21 @@ import './Insights.css';
 
 export const Insights: React.FC = () => {
   return (
-    <section className="insights-section section-light" id="insights" aria-label="News and Community Insights">
+    <section className="insights-section section-light" id="insights" aria-label="Living and lifestyle insights">
       <div className="container">
         {/* Section Header */}
         <div className="insights-header">
           <div className="header-left">
-            <span className="eyebrow eyebrow-light">News &amp; Community Insights</span>
-            <h2 className="insights-title">Ideas Shaping Stronger Communities.</h2>
+            <span className="eyebrow eyebrow-light">Living &amp; Lifestyle Insights</span>
+            <h2 className="insights-title">Thoughtful Ideas for Everyday Living.</h2>
           </div>
           <div className="header-right">
             <p className="insights-header-desc">
-              Explore perspectives on community stability, meaningful partnerships, and purposeful
-              resource development.
+              Explore perspectives on comfortable living, personal independence, and creating spaces
+              that truly feel like home.
             </p>
             <a href="#insights" className="btn-outline-on-light" aria-describedby="insights-pending-note">
-              EXPLORE INSIGHTS
+              VIEW INSIGHTS
             </a>
           </div>
         </div>
@@ -70,7 +70,7 @@ export const Insights: React.FC = () => {
                       title={pendingTitle}
                       aria-disabled={article.pending || undefined}
                     >
-                      READ ARTICLE <ArrowUpRight size={14} />
+                      READ MORE <ArrowUpRight size={14} />
                     </a>
                   </div>
                 </div>

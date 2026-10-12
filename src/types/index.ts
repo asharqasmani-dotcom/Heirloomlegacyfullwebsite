@@ -9,6 +9,7 @@ export interface Initiative {
   category: string;
   description: string;
   image: string;
+  imageAlt: string;
   href: string;
 }
 
@@ -64,10 +65,14 @@ export interface BrandValue {
 }
 
 export type InquiryType =
+  | 'General Inquiry'
   | 'Community Partnership'
-  | 'Institutional Collaboration'
   | 'Resource Support'
-  | 'General Inquiry';
+  | 'Get Involved'
+  | 'Independent Living Inquiry'
+  | 'Residential Information'
+  | 'General Questions'
+  | 'Other Inquiry';
 
 export interface ContactFormData {
   fullName: string;

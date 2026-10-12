@@ -6,9 +6,9 @@ import { Article } from '../types';
 export const insightsArticles: Article[] = [
   {
     id: 'article-1',
-    title: 'Building a Stronger Foundation for Community Stability',
+    title: 'Why Personal Space Matters in Everyday Living',
     badge: { primary: '01', secondary: 'Pending' },
-    category: 'Community',
+    category: 'Independent Living',
     author: 'Heirloom Legacy',
     image: '/assets/dit.nomadenstudio.com/arvon/wp-content/uploads/sites/7/2026/01/handsome-businessman-in-sunglasses-is-walking-arou-3Q2FX4R-1024x683.jpg',
     href: '#insights',
@@ -16,9 +16,9 @@ export const insightsArticles: Article[] = [
   },
   {
     id: 'article-2',
-    title: 'The Value of Meaningful Community Partnerships',
+    title: 'Creating Spaces That Feel Warm and Welcoming',
     badge: { primary: '02', secondary: 'Pending' },
-    category: 'Partnerships',
+    category: 'Comfort & Home',
     author: 'Heirloom Legacy',
     image: '/assets/dit.nomadenstudio.com/arvon/wp-content/uploads/sites/7/2026/01/modern-style-conceptual-reception-interior-room-3d-AVNKQGQ-1024x683.jpg',
     href: '#insights',
@@ -26,9 +26,9 @@ export const insightsArticles: Article[] = [
   },
   {
     id: 'article-3',
-    title: 'How Purposeful Resources Support Lasting Impact',
+    title: 'Finding the Balance Between Privacy and Connection',
     badge: { primary: '03', secondary: 'Pending' },
-    category: 'Resources',
+    category: 'Lifestyle',
     author: 'Heirloom Legacy',
     image: '/assets/dit.nomadenstudio.com/arvon/wp-content/uploads/sites/7/2026/01/golden-number-2026-key-and-tiny-home-on-background-LRHKQ64-1024x683.jpg',
     href: '#insights',

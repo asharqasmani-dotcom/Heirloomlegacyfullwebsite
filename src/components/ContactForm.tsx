@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { submitContact, INQUIRY_TYPES, CONTACT_RECIPIENT } from '../services/api';
+import { submitContact, HOMEPAGE_INQUIRY_TYPES, CONTACT_RECIPIENT } from '../services/api';
 import { ContactFormData } from '../types';
 import { User, Mail, ListFilter, MessageSquare, CheckCircle, AlertCircle, Loader2, ChevronDown } from 'lucide-react';
 import './ContactForm.css';
@@ -65,11 +65,11 @@ export const ContactForm: React.FC = () => {
 
         <div className="container newsletter-content-wrapper">
           <div className="newsletter-card">
-            <span className="eyebrow eyebrow-dark">Connect With Heirloom Legacy</span>
-            <h2 className="newsletter-title">Let&rsquo;s Build Stronger Communities Together.</h2>
+            <span className="eyebrow eyebrow-dark">Connect With Heirloom</span>
+            <h2 className="newsletter-title">Discover a More Thoughtful Way of Living.</h2>
             <p className="newsletter-desc">
-              Connect with our team to explore meaningful partnerships, community initiatives,
-              and opportunities to support our mission.
+              Have questions about our independent living vision? Connect with our team to learn
+              more about Heirloom Legacy and its residential approach.
             </p>
 
             {/* Contact Inquiry Form */}
@@ -91,7 +91,7 @@ export const ContactForm: React.FC = () => {
                       name="fullName"
                       autoComplete="name"
                       className={`contact-input ${fieldErrors.fullName ? 'input-error' : ''}`}
-                      placeholder="Your full name"
+                      placeholder="Your Full Name"
                       value={formData.fullName}
                       onChange={handleChange}
                       aria-invalid={Boolean(fieldErrors.fullName)}
@@ -116,7 +116,7 @@ export const ContactForm: React.FC = () => {
                       name="email"
                       autoComplete="email"
                       className={`contact-input ${fieldErrors.email ? 'input-error' : ''}`}
-                      placeholder="Your email address"
+                      placeholder="Email Address"
                       value={formData.email}
                       onChange={handleChange}
                       aria-invalid={Boolean(fieldErrors.email)}
@@ -151,7 +151,7 @@ export const ContactForm: React.FC = () => {
                         <option value="" disabled>
                           Select an inquiry type
                         </option>
-                        {INQUIRY_TYPES.map((type) => (
+                        {HOMEPAGE_INQUIRY_TYPES.map((type) => (
                           <option key={type} value={type}>
                             {type}
                           </option>
@@ -169,7 +169,7 @@ export const ContactForm: React.FC = () => {
                   {/* Message */}
                   <div className="contact-field contact-field-full">
                     <label htmlFor="contact-message" className="cf-label">
-                      <MessageSquare size={14} className="cf-label-icon" /> Message
+                      <MessageSquare size={14} className="cf-label-icon" /> Your Message
                     </label>
                     <textarea
                       id="contact-message"
@@ -177,7 +177,7 @@ export const ContactForm: React.FC = () => {
                       rows={3}
                       maxLength={2000}
                       className={`contact-input contact-textarea ${fieldErrors.message ? 'input-error' : ''}`}
-                      placeholder="Tell us about your inquiry"
+                      placeholder="How Can We Help?"
                       value={formData.message}
                       onChange={handleChange}
                       aria-invalid={Boolean(fieldErrors.message)}

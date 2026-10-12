@@ -8,23 +8,23 @@ export const PropertySlider: React.FC = () => {
     <section
       className="property-slider-section section-dark"
       id="initiatives"
-      aria-label="Community Initiatives"
+      aria-label="The Living Experience"
     >
       <div className="container">
         {/* Section Header */}
         <div className="property-slider-header">
           <div className="header-left">
-            <span className="eyebrow eyebrow-dark">Our Community Vision</span>
-            <h2 className="property-slider-title">Creating Opportunities for Stronger Communities.</h2>
+            <span className="eyebrow eyebrow-dark">Discover Better Living</span>
+            <h2 className="property-slider-title">Independent Living Designed Around Everyday Comfort.</h2>
           </div>
           <div className="header-right">
             <p className="property-header-desc">
-              Our nonprofit vision brings people, partnerships, and resources together to support
-              meaningful, lasting community progress.
+              Explore our vision for welcoming spaces, thoughtfully planned surroundings, and a
+              residential experience centered on personal independence.
             </p>
             <div className="header-action-row">
               <a href="#mission" className="btn-primary">
-                EXPLORE OUR VISION <ArrowUpRight size={16} />
+                EXPLORE LIVING <ArrowUpRight size={16} />
               </a>
             </div>
           </div>
@@ -38,7 +38,7 @@ export const PropertySlider: React.FC = () => {
                 <div className="card-media-wrapper">
                   <img
                     src={item.image}
-                    alt=""
+                    alt={item.imageAlt}
                     className="card-media-img"
                     loading="lazy"
                     width={400}
@@ -55,7 +55,7 @@ export const PropertySlider: React.FC = () => {
                   <p className="card-desc">{item.description}</p>
                   <div className="card-footer">
                     <a href={item.href} className="card-detail-link">
-                      LEARN MORE <ArrowUpRight size={15} />
+                      DISCOVER MORE <ArrowUpRight size={15} />
                     </a>
                   </div>
                 </div>
